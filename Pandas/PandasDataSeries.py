@@ -1,4 +1,5 @@
 import pandas as pd
+import unittest
 
 def create_series()->'Pandas Series':
   """
@@ -9,4 +10,23 @@ def create_series()->'Pandas Series':
   return ser
   
 
-create_series()
+def series_to_list(series:'Pandas Series')->'List':
+  """
+  2. Write a Pandas program to convert a Panda module Series to Python list and it's type.
+  """
+  return list(series)
+
+
+class TestPandasDataSeries(unittest.TestCase):
+  def test_series_to_list(self):
+    """
+    Convert Series to List and compare with right List.
+    """
+    series = pd.Series(['Yana','Ivan','Alex'], name = 'Children')
+    _list = ['Yana','Ivan','Alex']
+    self.assertEqual(series_to_list(series), _list)
+
+
+if __name__=='__main__':
+  unittest.main()
+
