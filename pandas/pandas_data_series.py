@@ -5,12 +5,12 @@ def create_series()->'Pandas Series':
   """
   1. Write a Pandas program to create and display a one-dimensional array-like object containing an array of data using Pandas module.
   """
-  ser = pd.Series(['Yana','Ivan','Alex'], name = 'Children')
+  ser = pd.Series(['Yana', 'Ivan', 'Alex'], name='Children')
   print(ser)
   return ser
   
 
-def series_to_list(series:'Pandas Series')->'List':
+def series_to_list(series: 'Pandas Series') -> 'List':
   """
   2. Write a Pandas program to convert a Panda module Series to Python list and it's type.
   """
@@ -22,11 +22,11 @@ class TestPandasDataSeries(unittest.TestCase):
     """
     Convert Series to List and compare with right List.
     """
-    series = pd.Series(['Yana','Ivan','Alex'], name = 'Children')
-    _list = ['Yana','Ivan','Alex']
-    self.assertEqual(series_to_list(series), _list)
+    series = pd.Series(['Yana','Ivan','Alex'], name='Children')
+    list_ = ['Yana','Ivan','Alex']
+    self.assertEqual(series_to_list(series), list_)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
   unittest.main()
 
