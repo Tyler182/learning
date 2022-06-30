@@ -97,6 +97,22 @@ def divide_series(series1, series2):
     return series1/series2
 
 
+def covert_dictionary_to_series(dictionary):
+    """Convert dictionary to a Pandas series.
+
+    5. Write a Pandas program to convert a dictionary to a Pandas series.
+
+    Args:
+        dictionary (dictionary): First series to compare.
+    Returns:
+        Pandas series from dictionary
+
+    """
+
+    return pd.Series(dictionary)
+
+print(list(covert_dictionary_to_series({'a': 100, 'b': 200, 'c': 300, 'd': 400, 'e': 800})))
+
 def compare_series(series1, series2):
     """Compare elements of two series
 
