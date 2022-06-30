@@ -97,22 +97,6 @@ def divide_series(series1, series2):
     return series1/series2
 
 
-def covert_dictionary_to_series(dictionary):
-    """Convert dictionary to a Pandas series.
-
-    5. Write a Pandas program to convert a dictionary to a Pandas series.
-
-    Args:
-        dictionary (dictionary): First series to compare.
-    Returns:
-        Pandas series from dictionary
-
-    """
-
-    return pd.Series(dictionary)
-
-print(list(covert_dictionary_to_series({'a': 100, 'b': 200, 'c': 300, 'd': 400, 'e': 800})))
-
 def compare_series(series1, series2):
     """Compare elements of two series
 
@@ -132,7 +116,39 @@ def compare_series(series1, series2):
         return 'Could not compare because of different length of series'
 
 
+def convert_dictionary_to_series(dictionary):
+    """Convert dictionary to a Pandas series.
+
+    5. Write a Pandas program to convert a dictionary to a Pandas series.
+
+    Args:
+        dictionary (dictionary): First series to compare.
+    Returns:
+        Pandas series from dictionary
+
+    """
+
+    return pd.Series(dictionary)
+
+
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_covert_dictionary_to_series(self):
+        """Test - convert dictionary to series
+        """
+
+        dictionary = {'a': 100, 'b': 200, 'c': 300, 'd': 400, 'e': 800}
+        list1 = [100, 200, 300, 400, 800]
+        list2 = ['a', 'b', 'c', 'd', 'e']
+        self.assertEqual(
+            list(convert_dictionary_to_series(dictionary)),
+            list1
+            )
+        self.assertEqual(
+            list(convert_dictionary_to_series(dictionary).index),
+            list2
+            )
+
 
     def test_compare_series_equel_length(self):
         """Test - compare 2 series equel length
@@ -145,6 +161,7 @@ class TestPandasDataSeries(unittest.TestCase):
             [False, True, False]
             )
 
+
     def test_compare_series_different_length(self):
         """Test - compare 2 series different length
         """
@@ -156,6 +173,7 @@ class TestPandasDataSeries(unittest.TestCase):
             'Could not compare because of different length of series'
             )
 
+
     def test_compare_series_zero_length(self):
         """Test - compare 2 series zero length
         """
@@ -163,6 +181,7 @@ class TestPandasDataSeries(unittest.TestCase):
         series1 = pd.Series([], dtype='float64')
         series2 = pd.Series([], dtype='float64')
         self.assertEqual(list(compare_series(series1,series2)),[])
+
 
     def test_add_series(self):
         """Test add two Pandas Series
