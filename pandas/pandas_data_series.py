@@ -158,9 +158,44 @@ def change_series_type_to_str(series):
 
     return series.astype(str, errors='ignore')
 
+def first_column_to_series(dataframe):
+    """8. Write a Pandas program to convert the first column of
+    a DataFrame as a Series.
+
+    Args:
+        dataframe (Pandas DataFrame)
+    Returns:
+        Pandas Series which is the first column of dataframe
+
+    """
+    if len(dataframe.columns) >= 1:
+        return dataframe.iloc[:,0]
+    else:
+        return pd.Series([], dtype='float64')
 
 
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_first_column_to_series(self):
+
+        dataframe = pd.DataFrame({'Employer':['Ivan', 'Alex'], 'Age':[20, 25]})
+        series = pd.Series(['Ivan', 'Alex'])
+        self.assertEqual(
+            list(first_column_to_series(dataframe)),
+            list(series)
+            )
+
+
+    def test_first_column_to_series_empty_dataframe(self):
+        """Test with empty dataframe
+        """
+        dataframe = pd.DataFrame({})
+        series = pd.Series([], dtype='float64')
+        self.assertEqual(
+            list(first_column_to_series(dataframe)),
+            list(series)
+            )
+
 
     def test_change_series_type_to_int(self):
 
