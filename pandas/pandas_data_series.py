@@ -145,7 +145,31 @@ def convert_array_to_series(array):
     return pd.Series(array)
 
 
+def change_series_type_to_str(series):
+    """7. Write a Pandas program to change the data type of given
+    a column or a Series.
+
+    Args:
+        series (Pandas Series): Series to be changed data type
+    Returns:
+        Pandas Series with changed data type
+
+    """
+
+    return series.astype(str, errors='ignore')
+
+
+
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_change_series_type_to_int(self):
+
+        series = pd.Series([1, 2.3, 3.3])
+        self.assertEqual(
+            change_series_type_to_str(series).dtypes,
+            'object'
+            )
+
 
     def test_convert_array_to_series(self):
 
