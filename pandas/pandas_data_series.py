@@ -185,6 +185,7 @@ def convert_series_to_array(series):
     """
     return(np.array(series))
 
+print()
 
 class TestPandasDataSeries(unittest.TestCase):
 
