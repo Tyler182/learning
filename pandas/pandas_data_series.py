@@ -1,5 +1,6 @@
 import pandas as pd
 import unittest
+import numpy as np
 
 def create_series():
     """Create Pandas Series
@@ -122,7 +123,7 @@ def convert_dictionary_to_series(dictionary):
     5. Write a Pandas program to convert a dictionary to a Pandas series.
 
     Args:
-        dictionary (dictionary): First series to compare.
+        dictionary (dictionary): Dictionary to be converted.
     Returns:
         Pandas series from dictionary
 
@@ -131,7 +132,28 @@ def convert_dictionary_to_series(dictionary):
     return pd.Series(dictionary)
 
 
+def convert_array_to_series(array):
+    """6. Write a Pandas program to convert a NumPy array to a Pandas series.
+
+    Args:
+        array (numpy array): Array to be converted.
+    Returns:
+        Pandas series from dicctionary
+
+    """
+
+    return pd.Series(array)
+
+
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_convert_array_to_series(self):
+
+        array = np.array([1, 2, 3, 4])
+        self.assertEqual(
+            list(convert_array_to_series(array)),
+            list(pd.Series([1, 2, 3, 4]))
+            )
 
     def test_covert_dictionary_to_series(self):
         """Test - convert dictionary to series
