@@ -174,7 +174,29 @@ def first_column_to_series(dataframe):
         return pd.Series([], dtype='float64')
 
 
+def convert_series_to_array(series):
+    """9. Write a Pandas program to convert a given Series to an array.
+
+    Args:
+        series (Pandas Series)
+    Returns:
+        NumPy Array
+
+    """
+    return(np.array(series))
+
+
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_convert_series_to_array(self):
+
+        series = pd.Series(['Ivan', 'Alex'])
+        array = np.array(['Ivan', 'Alex'])
+        self.assertEqual(
+            list(convert_series_to_array(series)),
+            list(array)
+            )
+
 
     def test_first_column_to_series(self):
 
