@@ -201,10 +201,30 @@ def convert_series_of_lists_to_series(series):
         s += item
     return(pd.Series(s))
 
-series = pd.Series([['Red', 'Green', 'White'], ['Red', 'Black'], ['Yellow']])
-
 
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_convert_series_of_lists_to_series(self):
+
+        series1 = pd.Series([['Red', 'Green', 'White'],
+            ['Red', 'Black'],
+            ['Yellow']])
+        series2 = pd.Series(['Red', 'Green', 'White',
+            'Red', 'Black', 'Yellow'])
+        self.assertEqual(
+            list(convert_series_of_lists_to_series(series1)),
+            list(series2)
+            )
+
+
+    def test_convert_series_to_array(self):
+
+        series = pd.Series(['Ivan', 'Alex'])
+        array = np.array(['Ivan', 'Alex'])
+        self.assertEqual(
+            list(convert_series_to_array(series)),
+            list(array)
+            )
 
     def test_convert_series_to_array(self):
 
