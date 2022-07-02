@@ -185,7 +185,24 @@ def convert_series_to_array(series):
     """
     return(np.array(series))
 
-print()
+
+def convert_series_of_lists_to_series(series):
+    """10. Write a Pandas program to convert Series of lists to one Series.
+
+    Args:
+        series (Pandas Series) - Series of lists
+    Returns:
+        Series
+
+    """
+
+    s = []
+    for iter, item in series.iteritems():
+        s += item
+    return(pd.Series(s))
+
+series = pd.Series([['Red', 'Green', 'White'], ['Red', 'Black'], ['Yellow']])
+
 
 class TestPandasDataSeries(unittest.TestCase):
 
