@@ -202,7 +202,32 @@ def convert_series_of_lists_to_series(series):
     return(pd.Series(s))
 
 
+def sort_series(series):
+    """Sort series ascending.
+
+    11. Write a Pandas program to sort a given Series.
+
+    Args:
+        series (Pandas Series) - Series to be sorted
+    Returns:
+        Pandas Series which is sorted of series
+
+    """
+
+    return series.sort_values(ascending=True)
+
+
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_sort_series(self):
+
+        series1 = pd.Series([3, 2, 1])
+        series2 = pd.Series([1, 2, 3])
+        self.assertEqual(
+            list(sort_series(series1)),
+            list(series2)
+            )
+
 
     def test_convert_series_of_lists_to_series(self):
 
@@ -225,6 +250,7 @@ class TestPandasDataSeries(unittest.TestCase):
             list(convert_series_to_array(series)),
             list(array)
             )
+
 
     def test_convert_series_to_array(self):
 
