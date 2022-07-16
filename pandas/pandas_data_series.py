@@ -217,7 +217,32 @@ def sort_series(series):
     return series.sort_values(ascending=True)
 
 
+def add_data_to_series(series, list_):
+    """12. Write a Pandas program to add some data to an existing Series.
+
+    Args:
+        series (Pandas Series) - input Series
+        list (List) - List of data to be added
+    Returns:
+        Pandas Series with added data
+
+    """
+
+    return pd.concat([series, pd.Series(list_)])
+
+
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_add_data_to_series(self):
+
+        series1 = pd.Series([3, 2, 1])
+        list_ = [1, 2, 3]
+        series2 = pd.Series([3, 2, 1, 1, 2, 3])
+        self.assertEqual(
+            list(add_data_to_series(series1, list_)),
+            list(series2)
+            )
+
 
     def test_sort_series(self):
 
