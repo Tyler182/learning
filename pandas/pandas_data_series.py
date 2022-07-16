@@ -231,7 +231,35 @@ def add_data_to_series(series, list_):
     return pd.concat([series, pd.Series(list_)])
 
 
+def less_then_n(series, n):
+    """ Return values less then n
+
+    13. Write a Pandas program to create a subset
+    of a given series based on value and condition.
+
+    Args:
+        series (Pandas Series) - input Series
+        n (Integer)
+    Returns:
+        Pandas Series with element of series which less then n
+
+    """
+
+    return series.loc[series.apply(lambda x: x < n)]
+
+
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_less_then_n(self):
+
+        series = pd.Series([1, 2, 3, 4, 5])
+        n = 4
+        list_ = [1, 2, 3]
+        self.assertEqual(
+            list(less_then_n(series, n)),
+            list_
+            )
+
 
     def test_add_data_to_series(self):
 
