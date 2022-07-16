@@ -248,7 +248,34 @@ def less_then_n(series, n):
     return series.loc[series.apply(lambda x: x < n)]
 
 
+def change_index_order_series(series, new_order):
+    """ Return series with changed index order
+
+    14. Write a Pandas program to change the order of index
+    of a given series.
+
+    Args:
+        series (Pandas Series) - input Series
+        new_order (List) - new index order to be applyed to series
+    Returns:
+        Pandas Series with with changed index order
+
+    """
+
+    return series.reindex(index=new_order)
+
+
 class TestPandasDataSeries(unittest.TestCase):
+
+    def test_change_index_order_series(self):
+
+        series = pd.Series(['A', 'B', 'C', 'D', 'E'])
+        new_order = [5, 3, 2, 4, 1]
+        self.assertEqual(
+            list(change_index_order_series(series, new_order).index),
+            new_order
+            )
+
 
     def test_less_then_n(self):
 
