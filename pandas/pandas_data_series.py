@@ -259,7 +259,7 @@ def change_index_order_series(series, new_order):
         new_order (List) - new index order to be applyed to series
     Returns:
         Pandas Series with with changed index order
-
+        
     """
 
     return series.reindex(index=new_order)
