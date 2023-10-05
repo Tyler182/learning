@@ -68,7 +68,19 @@ def get_3_rows(df):
         Pandas Data Frame - 3 rows
     """
     
-    return df[0:3]    
+    return df.iloc[0:3]    
+    
+def get_name_and_score(df):
+    """
+    5. Write a Pandas program to select the 'name' and 'score'
+    columns from the following DataFrame.
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame - name and scores columns
+    """
+    return df.loc[:, ['name', 'score']]
 
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -85,7 +97,8 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(get_3_rows(df))
+    print(get_name_and_score(df))
+    help(get_name_and_score)
     unittest.main()
     
     
