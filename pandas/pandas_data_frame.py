@@ -81,7 +81,21 @@ def get_name_and_score(df):
         Pandas Data Frame - name and scores columns
     """
     return df.loc[:, ['name', 'score']]
+    
+def get_columns_and_rows(df, rows, columns):
+    """
+    6. Write a Pandas program to select the specified
+    columns and rows from a given data frame. 
 
+    Args:
+        df(Pandas Data Frame) 
+        columns (List)
+        rows (List)
+    Returns:
+        Pandas Data Frame with specified columns and rows
+    """
+    return df.loc[:, columns].iloc[rows]
+    
 class TestPandasDataSeries(unittest.TestCase):
 
     def test_create_data_frame(self):
@@ -97,8 +111,9 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(get_name_and_score(df))
-    help(get_name_and_score)
+    rows = [1, 3, 5, 6]
+    columns = ['name', 'score']
+    print(get_columns_and_rows(df, rows, columns))
     unittest.main()
     
     
