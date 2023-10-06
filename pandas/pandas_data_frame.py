@@ -96,6 +96,18 @@ def get_columns_and_rows(df, rows, columns):
     """
     return df.loc[:, columns].iloc[rows]
     
+def attempts_greater_2(df):
+    """
+    7. Write a Pandas program to select the rows where
+    the number of attempts in the examination is greater than 2.  
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    return df[df.attempts > 2]   
+    
 class TestPandasDataSeries(unittest.TestCase):
 
     def test_create_data_frame(self):
@@ -111,9 +123,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    rows = [1, 3, 5, 6]
-    columns = ['name', 'score']
-    print(get_columns_and_rows(df, rows, columns))
+    print(attempts_greater_2(df))
     unittest.main()
     
     
