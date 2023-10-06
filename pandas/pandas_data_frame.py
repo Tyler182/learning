@@ -106,7 +106,19 @@ def attempts_greater_2(df):
     Returns:
         Pandas Data Frame 
     """
-    return df[df.attempts > 2]   
+    return df[df.attempts > 2]
+
+def number_rows_columns(df):
+    """
+    8. Write a Pandas program to count the number
+    of rows and columns of a DataFrame. 
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    return len(df.axes[0]), len(df.axes[1])  
     
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -123,7 +135,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(attempts_greater_2(df))
+    print(number_rows_columns(df))
     unittest.main()
     
     
