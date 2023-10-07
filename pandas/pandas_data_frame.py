@@ -131,6 +131,18 @@ def rows_score_nan(df):
         Pandas Data Frame 
     """
     return df.loc[df['score'].isnull()]      
+
+def score_between_15_20(df):
+    """
+    10. Write a Pandas program to select the rows
+    the score is between 15 and 20 (inclusive). 
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    return df.loc[(df['score'] >= 15) & (df['score'] <= 20)]     
     
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -147,8 +159,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(df)
-    print(rows_score_nan(df))
+    print(score_between_15_20(df))
     unittest.main()
     
     
