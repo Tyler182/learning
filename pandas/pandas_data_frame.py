@@ -118,7 +118,19 @@ def number_rows_columns(df):
     Returns:
         Pandas Data Frame 
     """
-    return len(df.axes[0]), len(df.axes[1])  
+    return len(df.axes[0]), len(df.axes[1])
+
+def rows_score_nan(df):
+    """
+    9. Write a Pandas program to select the rows
+    where the score is missing, i.e. is NaN. 
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    return df.loc[df['score'].isnull()]      
     
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -135,7 +147,8 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(number_rows_columns(df))
+    print(df)
+    print(rows_score_nan(df))
     unittest.main()
     
     
