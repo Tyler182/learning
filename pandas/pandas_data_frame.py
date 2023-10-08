@@ -190,6 +190,8 @@ class TestPandasDataSeries(unittest.TestCase):
             create_data_frame().to_dict('list'),
             {'X':[78,85,96,80,86],'Y':[84,94,89,83,86],'Z':[86,97,96,72,83]}
             )
+    def test_sum_attempts(self):
+        self.assertEqual(sum_attempts(df), 19)
 
 if __name__ == '__main__':
     exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
