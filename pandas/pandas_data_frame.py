@@ -168,7 +168,20 @@ def change_score_in_d(df):
         Pandas Data Frame 
     """
     df.loc['d', 'score'] = 11.5
-    return df      
+    return df
+
+def sum_attempts(df):
+    """
+    13. Write a Pandas program to calculate the sum
+    of the examination attempts by the students. 
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    return df.loc[:, 'attempts'].sum()
+    
     
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -185,7 +198,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(change_score_in_d(df))
+    print(sum_attempts(df))
     unittest.main()
     
     
