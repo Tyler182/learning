@@ -144,7 +144,7 @@ def score_between_15_20(df):
     """
     return df.loc[(df['score'] >= 15) & (df['score'] <= 20)]     
 
-def score_between_15_20(df):
+def attemps_less_2_score_greater_15(df):
     """
     11. Write a Pandas program to select the rows where
     number of attempts in the examination is less than 2 
@@ -155,7 +155,20 @@ def score_between_15_20(df):
     Returns:
         Pandas Data Frame 
     """
-    return df.loc[(df['attempts'] < 2) & (df['score'] > 15)]   
+    return df.loc[(df['attempts'] < 2) & (df['score'] > 15)]
+
+def change_score_in_d(df):
+    """
+    12. Write a Pandas program to change the score 
+    in row 'd' to 11.5.
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    df.loc['d', 'score'] = 11.5
+    return df      
     
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -172,7 +185,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(score_between_15_20(df))
+    print(change_score_in_d(df))
     unittest.main()
     
     
