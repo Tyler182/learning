@@ -143,6 +143,19 @@ def score_between_15_20(df):
         Pandas Data Frame 
     """
     return df.loc[(df['score'] >= 15) & (df['score'] <= 20)]     
+
+def score_between_15_20(df):
+    """
+    11. Write a Pandas program to select the rows where
+    number of attempts in the examination is less than 2 
+    and score greater than 15.  
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    return df.loc[(df['attempts'] < 2) & (df['score'] > 15)]   
     
 class TestPandasDataSeries(unittest.TestCase):
 
