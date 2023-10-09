@@ -182,6 +182,18 @@ def sum_attempts(df):
     """
     return df.loc[:, 'attempts'].sum()
     
+def mean_score(df):
+    """
+    14. Write a Pandas program to calculate the mean
+    of all students' scores. Data is stored in a dataframe.  
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    return df.loc[:, 'score'].mean()
+    
     
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -200,7 +212,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(sum_attempts(df))
+    print(mean_score(df))
     unittest.main()
     
     
