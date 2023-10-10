@@ -193,7 +193,23 @@ def mean_score(df):
         Pandas Data Frame 
     """
     return df.loc[:, 'score'].mean()
-    
+
+def append_row(df):
+    """
+    15. Write a Pandas program to append a new row 'k' to data
+    frame with given values for each column.
+    Now delete the new row and return the original DataFrame. 
+    name : "Suresh", score: 15.5, attempts: 1, qualify: "yes", label: "k"    
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    df.loc['k'] = ["Suresh", 15.5, 1, "yes"]
+    print(df)
+    df = df.drop(index=['k'])
+    return df
     
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -212,7 +228,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(mean_score(df))
+    df = append_row(df)
     unittest.main()
     
     
