@@ -211,6 +211,21 @@ def append_row(df):
     df = df.drop(index=['k'])
     return df
     
+def sot_by_name_score(df):
+    """
+    16. Write a Pandas program to sort the 
+    DataFrame first by 'name' in descending order,
+    then by 'score' in ascending order.    
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    df = df.sort_values(by=['name', 'score'], ascending = [False, True])
+    print(df)
+    return df
+    
 class TestPandasDataSeries(unittest.TestCase):
 
     def test_create_data_frame(self):
@@ -228,7 +243,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    df = append_row(df)
+    df = sot_by_name_score(df)
     unittest.main()
     
     
