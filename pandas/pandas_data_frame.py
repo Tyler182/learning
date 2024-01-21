@@ -226,6 +226,25 @@ def sot_by_name_score(df):
     print(df)
     return df
     
+def replace_qualify(df):
+    """
+    Write a Pandas program to replace the 'qualify'
+    column contains the values 'yes' and 'no' with
+    True and False.     
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    df1 = df.loc[df.qualify == 'yes']
+    df1['qualify'] = True
+    df2 = df.loc[df.qualify == 'no']
+    df2['qualify'] = False
+    df = pd.concat([df1, df2])
+    print(df)
+    return df
+    
 class TestPandasDataSeries(unittest.TestCase):
 
     def test_create_data_frame(self):
@@ -243,7 +262,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    df = sot_by_name_score(df)
+    df = replace_qualify(df)
     unittest.main()
     
     
