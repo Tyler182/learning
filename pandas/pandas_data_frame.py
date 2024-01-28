@@ -228,7 +228,7 @@ def sot_by_name_score(df):
     
 def replace_qualify(df):
     """
-    Write a Pandas program to replace the 'qualify'
+    17. Write a Pandas program to replace the 'qualify'
     column contains the values 'yes' and 'no' with
     True and False.     
 
@@ -243,6 +243,19 @@ def replace_qualify(df):
     df2['qualify'] = False
     df = pd.concat([df1, df2])
     print(df)
+    return df
+    
+def james_to_suresh(df):
+    """
+    18. Write a Pandas program to change the name
+    'James' to 'Suresh' in name column of the DataFrame.     
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    df['name'] = df['name'].map({'James': 'Suresh'}).fillna(df['name'])
     return df
     
 class TestPandasDataSeries(unittest.TestCase):
@@ -262,7 +275,8 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    df = replace_qualify(df)
+    df = james_to_suresh(df)
+    print(df)
     unittest.main()
     
     
