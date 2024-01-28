@@ -271,6 +271,20 @@ def delete_attempts(df):
     df = df.drop('attempts', axis = 1)
     return df
     
+def insert_color(df, color):
+    """
+    20. Write a Pandas program to insert 
+    a new column in existing DataFrame.      
+
+    Args:
+        df(Pandas Data Frame)
+        color (List)
+    Returns:
+        Pandas Data Frame 
+    """
+    df['color'] = color
+    return df
+    
 class TestPandasDataSeries(unittest.TestCase):
 
     def test_create_data_frame(self):
@@ -288,7 +302,8 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    df = delete_attempts(df)
+    color = ['blue', 'red', 'blue', 'red', 'blue', 'red', 'blue', 'red', 'blue', 'red']
+    df = insert_color(df, color)
     print(df)
     # unittest.main()
     
