@@ -258,6 +258,19 @@ def james_to_suresh(df):
     df['name'] = df['name'].map({'James': 'Suresh'}).fillna(df['name'])
     return df
     
+def delete_attempts(df):
+    """
+    19. Write a Pandas program to delete the 'attempts'
+    column from the DataFrame.     
+
+    Args:
+        df(Pandas Data Frame) 
+    Returns:
+        Pandas Data Frame 
+    """
+    df = df.drop('attempts', axis = 1)
+    return df
+    
 class TestPandasDataSeries(unittest.TestCase):
 
     def test_create_data_frame(self):
@@ -275,9 +288,9 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    df = james_to_suresh(df)
+    df = delete_attempts(df)
     print(df)
-    unittest.main()
+    # unittest.main()
     
     
     
