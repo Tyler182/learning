@@ -285,6 +285,21 @@ def insert_color(df, color):
     df['color'] = color
     return df
     
+def iterate_df(df):
+    """
+    21. Write a Pandas program to iterate
+    over rows in a DataFrame.      
+
+    Args:
+        df(Pandas Data Frame)
+    Returns:
+        Pandas Data Frame 
+    """
+    for index, row in df.iterrows():
+        for i in row:
+            print(i, end = ' ')
+        print()
+        
 class TestPandasDataSeries(unittest.TestCase):
 
     def test_create_data_frame(self):
@@ -302,9 +317,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    color = ['blue', 'red', 'blue', 'red', 'blue', 'red', 'blue', 'red', 'blue', 'red']
-    df = insert_color(df, color)
-    print(df)
+    iterate_df(df)
     # unittest.main()
     
     
