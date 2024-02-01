@@ -300,17 +300,19 @@ def iterate_df(df):
             print(i, end = ' ')
         print()
         
-def list_from_headers(df):
+def rename_columns(df,new_columns):
     """
-    22. Write a Pandas program to get list
-    from DataFrame column headers. 
+    23. Write a Pandas program to rename 
+    columns of a given DataFrame  
 
     Args:
         df(Pandas Data Frame)
+        new_columns(List)
     Returns:
-        List 
+        df(Pandas Data Frame)
     """
-    return list(df.columns)
+    df.columns = new_columns
+    return df
         
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -329,7 +331,8 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    print(list_from_headers(df))
+    new_columns = ['1', '2', '3', '4']
+    print(rename_columns(df, new_columns))
     # unittest.main()
     
     
