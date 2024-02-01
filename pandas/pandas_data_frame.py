@@ -300,6 +300,18 @@ def iterate_df(df):
             print(i, end = ' ')
         print()
         
+def list_from_headers(df):
+    """
+    22. Write a Pandas program to get list
+    from DataFrame column headers. 
+
+    Args:
+        df(Pandas Data Frame)
+    Returns:
+        List 
+    """
+    return list(df.columns)
+        
 class TestPandasDataSeries(unittest.TestCase):
 
     def test_create_data_frame(self):
@@ -317,7 +329,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, labels)
-    iterate_df(df)
+    print(list_from_headers(df))
     # unittest.main()
     
     
