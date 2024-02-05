@@ -313,6 +313,21 @@ def rename_columns(df,new_columns):
     """
     df.columns = new_columns
     return df
+    
+def select_rows_by_values(df, column, value):
+    """
+    24. Write a Pandas program to select rows
+    from a given DataFrame based on values in some columns.   
+
+    Args:
+        df(Pandas Data Frame)
+        column(String)
+        value (Object)
+    Returns:
+        df(Pandas Data Frame)
+    """
+    
+    return df.loc[df[column] == value]
         
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -330,9 +345,10 @@ if __name__ == '__main__':
                  'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-    df = pd.DataFrame(exam_data, labels)
-    new_columns = ['1', '2', '3', '4']
-    print(rename_columns(df, new_columns))
+    df = pd.DataFrame(exam_data, index = labels)
+    column = 'attempts'
+    value = 1
+    print(select_rows_by_values(df, column, value))
     # unittest.main()
     
     
