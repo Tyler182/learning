@@ -328,6 +328,21 @@ def select_rows_by_values(df, column, value):
     """
     
     return df.loc[df[column] == value]
+    
+def reorder_columns(df):
+    """
+    25. Write a Pandas program to change
+    the order of a DataFrame columns.    
+
+    Args:
+        df(Pandas Data Frame)
+    Returns:
+        df(Pandas Data Frame)
+    """
+    
+    columns = df.columns.tolist()
+    columns.sort()
+    return df[columns]
         
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -346,9 +361,7 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, index = labels)
-    column = 'attempts'
-    value = 1
-    print(select_rows_by_values(df, column, value))
+    print(reorder_columns(df))
     # unittest.main()
     
     
