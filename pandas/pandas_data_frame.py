@@ -343,6 +343,21 @@ def reorder_columns(df):
     columns = df.columns.tolist()
     columns.sort()
     return df[columns]
+
+def add_row(df, row):
+    """
+    26. Write a Pandas program to add one row
+    in an existing DataFrame.     
+
+    Args:
+        df(Pandas Data Frame)
+    Returns:
+        df(Pandas Data Frame)
+    """
+    
+    # df = pd.concat([df, pd.Series(row).to_frame().T])
+    df.loc['k']=pd.Series(row)
+    return df
         
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -361,7 +376,10 @@ if __name__ == '__main__':
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     df = pd.DataFrame(exam_data, index = labels)
-    print(reorder_columns(df))
+    row = {'name': 'ivan', 'score': 12, 'attempts': 2, 'qualify': 'no'}
+    # print(pd.DataFrame(row, index = ['k']))
+    print(add_row(df, row))
+    
     # unittest.main()
     
     
