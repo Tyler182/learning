@@ -358,6 +358,17 @@ def add_row(df, row):
     # df = pd.concat([df, pd.Series(row).to_frame().T])
     df.loc['k']=pd.Series(row)
     return df
+
+def df_to_csv(df):
+    """
+    27. Write a Pandas program to write
+    a DataFrame to CSV file using tab separator.     
+
+    Args:
+        df(Pandas Data Frame)
+    """
+    
+    df.to_csv('output.csv', sep = '\t')
         
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -378,7 +389,7 @@ if __name__ == '__main__':
     df = pd.DataFrame(exam_data, index = labels)
     row = {'name': 'ivan', 'score': 12, 'attempts': 2, 'qualify': 'no'}
     # print(pd.DataFrame(row, index = ['k']))
-    print(add_row(df, row))
+    df_to_csv(df)
     
     # unittest.main()
     
