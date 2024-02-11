@@ -369,6 +369,20 @@ def df_to_csv(df):
     """
     
     df.to_csv('output.csv', sep = '\t')
+
+def people_by_city(df):
+    """
+    28. Write a Pandas program to count city
+    wise number of people from a given of data set
+    (city, name of the person).      
+
+    Args:
+        df(Pandas Data Frame)
+    Returns:
+        df(Pandas Data Frame)
+    """
+    df = df['city'].value_counts()
+    return df 
         
 class TestPandasDataSeries(unittest.TestCase):
 
@@ -385,11 +399,12 @@ if __name__ == '__main__':
                  'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
                  'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
                  'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
+    exam_data2 = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+'city': ['California', 'Los Angeles', 'California', 'California', 'California', 'Los Angeles', 'Los Angeles', 'Georgia', 'Georgia', 'Los Angeles']}
     labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-    df = pd.DataFrame(exam_data, index = labels)
-    row = {'name': 'ivan', 'score': 12, 'attempts': 2, 'qualify': 'no'}
-    # print(pd.DataFrame(row, index = ['k']))
-    df_to_csv(df)
+    df = pd.DataFrame(exam_data2)
+    # row = {'name': 'ivan', 'score': 12, 'attempts': 2, 'qualify': 'no'}
+    print(people_by_city(df))
     
     # unittest.main()
     
